@@ -4,7 +4,7 @@
 
 SwiftUI + Swift Charts. iOS 17 or later. No packages, backend, exchange account, API key, analytics, or App Store distribution.
 
-The app UI is data-only: prices, charts, offers, limits, payment methods and timestamps. No marketing copy or warning paragraphs. Source limitations below are repository documentation rather than in-app filler.
+The app UI is data-only: prices, charts and timestamps. No marketing copy or warning paragraphs. Source limitations below are repository documentation rather than in-app filler.
 
 ## Run
 
@@ -39,7 +39,6 @@ Alternatively, run `bash scripts/install-iphone.sh DEVICE_IDENTIFIER` using an i
 - Detail charts use candle and line icon buttons in a single control row, with date navigation on the right and the style choice saved on-device. Candles use real OHLC bodies, high/low wicks, neutral dojis and a tapped O/H/L/C readout; lines use available closing prices, including rows without complete OHLC. Home sparklines remain close-price lines.
 - **4H / 1D / 1W / 1M** presets choose **5m / 30m / 4h / 1D bars** and an initial window of 48 / 48 / 42 / 30 observations. Pinch to zoom, drag horizontally, load earlier/newer prices, jump to a date, or return to Latest. History loads in pages of up to 200 observations. The vertical scale follows the visible prices.
 - P2P **buy USDT** and **sell USDT** reference quotes in MMK per USDT. No P2P charts or history collection.
-- Tap the P2P card to compare **five sellers for buying USDT** and **five buyers for selling USDT**, when available. Show advertised price, payment methods, MMK limits, available USDT, and advertiser completion/order statistics. Buy is cheapest first; sell is highest first. Rankings are among up to 20 returned listings per direction, not a claim about all available market liquidity.
 - Refresh on foreground, pull-to-refresh, manual refresh, and every five minutes while active.
 - Atomic on-device persistence of watchlist and latest snapshots. Cached prices survive connection failures, are marked saved/stale, and remain visible without login.
 - No background polling, push notifications, portfolio connection, or trading functionality.
@@ -47,7 +46,7 @@ Alternatively, run `bash scripts/install-iphone.sh DEVICE_IDENTIFIER` using an i
 ## Sources and limitations
 
 - **Binance Spot**: unauthenticated `data-api.binance.vision` ticker, klines, and exchange catalog endpoints. Crypto prices retain their quote currency: USDT is not relabelled USD.
-- **Binance P2P**: public `www.binance.com/bapi/c2c/v1/public/c2c/agent/quote-price`, `ad-list`, and `trade-methods`. BUY means you buy USDT from sellers; SELL means you sell USDT to buyers. No credentials. Fetch time is receipt time, not a source quote/ad timestamp. The offer screen compares public advertisements across payment methods with no amount filter; actual eligibility and executable liquidity are not verified. Price quotes and ads are separate responses and are never substituted for one another. A successful empty list clears previous offers and explicitly says no public offers were returned; a failed refresh preserves the prior in-memory book with a saved/error label. Offers refresh on opening/foreground, manually, and every minute while the screen is active. They are not persisted to disk or accumulated as history.
+- **Binance P2P**: unauthenticated `www.binance.com/bapi/c2c/v1/public/c2c/agent/quote-price` for BUY and SELL USDT/MMK reference prices only. BUY means paying MMK for USDT; SELL means receiving MMK for USDT. Fetch time is receipt time, not a source quote timestamp. The card has no navigation or ad-list feature. Public MMK ad retrieval did not provide usable listings in this integration, so only reference prices are supported; they are not executable advertisements.
 - **Yahoo Finance**: public chart and symbol search endpoints for stocks and futures. These are unofficial integration endpoints without an availability contract; response formats, access, and delays can change. A licensed provider adapter can replace this service later. Personal installation does not imply redistribution rights.
 - Gold and oil defaults are **futures**, not physical gold/oil spot prices. Gold is USD per troy ounce; oil is USD per barrel. The continuous quoted contract can roll. Myanmar retail gold requires its own source.
 - A refresh time does not imply a new exchange observation. Quote time and fetch time are separate in instrument details. Detail charts use observed bars with real date labels, compressing closed-session time without inserting prices. The initial visible period can therefore cover more calendar time than its preset, especially for stocks. A date jump loads the observations ending at that date.
@@ -64,7 +63,7 @@ xcodebuild -project Muyar.xcodeproj -scheme Muyar \
   -derivedDataPath build/DerivedData CODE_SIGNING_ALLOWED=NO ONLY_ACTIVE_ARCH=YES test
 ```
 
-Unit tests cover provider parsing, timestamp alignment, null observations, OHLC validation/aggregation, visible scaling, zoom anchors, historical paging/date jumps, empty sessions, request cancellation, retries, source bounds, old-cache compatibility, currency labels, offline preservation, and watchlist persistence. Offer tests cover viewer-side request parameters, ordering/capping, invalid pairs/prices/limits, duplicate ads, payment mapping, empty vs failed responses, and independent refresh failures. UI tests cover P2P display, five offers per direction, empty offer states, chart ranges/style icons and date navigation, search/add, filters, and removal.
+Unit tests cover provider parsing, timestamp alignment, null observations, OHLC validation/aggregation, visible scaling, zoom anchors, historical paging/date jumps, empty sessions, request cancellation, retries, source bounds, old-cache compatibility, currency labels, offline preservation, watchlist persistence and unauthenticated P2P reference-price request directions. UI tests cover P2P reference prices, chart ranges/style icons and date navigation, appearance, search/add, filters and removal.
 
 UI tests explicitly launch with `-ui-testing`, use deterministic fixture data, and write to a unique temporary state file. This mode exists only in Debug builds. Normal launches always use live services; Release builds contain no fixtures.
 
@@ -72,7 +71,7 @@ The same core tests also run on macOS without a simulator: `swift test --scratch
 
 For visual smoke checks when the UI test daemon is unavailable, a Debug build accepts `-open-instrument BTCUSDT -chart-range 1M`, optionally `-chart-style Line` (or `Candles`), `-chart-date 2025-11-01`, and `-preview-appearance light` (or `dark` / `system`). It opens that detail screen using the normal live service (unless `-ui-testing` is also supplied). These launch shortcuts are absent in Release.
 
-`-show-appearance-controls` starts the watchlist at its bottom appearance control for visual checks. `-open-p2p` opens the offers screen. For deterministic screenshots, combine it with `-ui-testing`; these ads show a short “Sample data” label. Add `-empty-p2p-offers` to exercise the empty state with the fixture service. Normal launches never use fixtures. At the 20 November 2026 live check, public MMK ad lists were empty while CNY returned real listings; Muyar reports MMK's empty result without inventing five offers.
+`-show-appearance-controls` starts the watchlist at its bottom appearance control for visual checks. Combine visual-check arguments with `-ui-testing` for deterministic fixtures. Normal launches never use fixtures.
 
 The app icon is drawn from native shapes. Regenerate with:
 

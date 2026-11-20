@@ -6,14 +6,12 @@ struct WatchlistView: View {
     @State private var category: AssetCategory?
     @State private var adding = false
     @State private var editing = false
-    @State private var showingP2POffers = false
     @State private var navigationPath: [Instrument] = []
 
     init() {
         #if DEBUG
         // A live-data visual smoke check can open a screen without the UI test daemon.
         let arguments = ProcessInfo.processInfo.arguments
-        _showingP2POffers = State(initialValue: arguments.contains("-open-p2p"))
         if let index = arguments.firstIndex(of: "-open-instrument"), arguments.indices.contains(index + 1),
            let instrument = Instrument.defaults.first(where: { $0.symbol == arguments[index + 1] }) {
             _navigationPath = State(initialValue: [instrument])
@@ -28,10 +26,7 @@ struct WatchlistView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 27) {
                     header
-                    Button { showingP2POffers = true } label: { P2PCard() }
-                        .buttonStyle(.plain)
-                        .accessibilityIdentifier("p2p-open-offers")
-                        .accessibilityHint("View the top five offers to buy USDT and the top five to sell USDT")
+                    P2PCard()
                     watchlistHeader
                     filters
                     if let message = store.persistenceError {
@@ -82,7 +77,6 @@ struct WatchlistView: View {
             .navigationDestination(for: Instrument.self) { InstrumentDetailView(instrument: $0, service: store.service) }
             .sheet(isPresented: $adding) { AddInstrumentView() }
             .sheet(isPresented: $editing) { EditWatchlistView() }
-            .sheet(isPresented: $showingP2POffers) { P2POffersView(service: store.service) }
             .task(id: scenePhase) {
                 guard scenePhase == .active else { return }
                 await store.refresh()
@@ -207,6 +201,7 @@ struct P2PCard: View {
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 6) {
                     Text("USDT / MMK").font(.system(size: 23, weight: .medium, design: .rounded)).tracking(-0.5)
+                    Text("Reference prices").font(.system(size: 11)).foregroundStyle(MuyarTheme.muted)
                 }
                 Spacer()
                 Text("BINANCE P2P").font(.system(size: 8, weight: .semibold)).tracking(0.8)
@@ -218,12 +213,6 @@ struct P2PCard: View {
                 Rectangle().fill(MuyarTheme.gold.opacity(0.18)).frame(width: 1, height: 58)
                 side(title: "Sell USDT", quote: store.p2pQuotes.sell, error: store.errors["p2p-sell"])
             }
-            HStack {
-                Text("Top 5 offers")
-                Spacer()
-                Image(systemName: "chevron.right")
-            }
-            .font(.system(size: 11, weight: .medium)).foregroundStyle(MuyarTheme.gold)
         }
         .padding(20)
         .background(LinearGradient(colors: [MuyarTheme.p2pTint, MuyarTheme.card], startPoint: .topLeading, endPoint: .bottomTrailing), in: RoundedRectangle(cornerRadius: 24))

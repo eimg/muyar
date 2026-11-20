@@ -43,18 +43,6 @@ struct PreviewMarketService: MarketServing {
         let samples = candles.map { ChartSample(date: $0.date, close: $0.close, candle: $0) }
         return .init(samples: samples, fetchedAt: Date(), nextBefore: samples.first.flatMap { $0.date > earliest ? $0.date : nil })
     }
-    func p2pOffers(side: P2PTradeSide) async throws -> P2POfferBook {
-        if ProcessInfo.processInfo.arguments.contains("-empty-p2p-offers") {
-            return .init(side: side, offers: [], fetchedAt: Date(), returnedCount: 0, omittedCount: 0)
-        }
-        let offers = (0..<5).map { index in
-            P2POffer(id: "sample-\(side.rawValue)-\(index)", price: Double(side == .buy ? 5160 + index * 2 : 5148 - index * 2),
-                     merchant: "Sample \(side.counterparty) \(index + 1)", minMMK: Double(100000 * (index + 1)), maxMMK: 5000000,
-                     availableUSDT: Double(8000 - index * 750), paymentMethods: index.isMultiple(of: 2) ? ["KBZPay", "Bank Transfer"] : ["WavePay"],
-                     completionRate: 0.998, monthlyOrders: 230 + index * 11)
-        }
-        return .init(side: side, offers: offers, fetchedAt: Date(), returnedCount: 5, omittedCount: 0)
-    }
     func search(_ query: String, crypto: Bool) async throws -> [Instrument] {
         Instrument.suggestions.filter {
             ($0.provider == .binance) == crypto && ($0.symbol.localizedCaseInsensitiveContains(query) || $0.name.localizedCaseInsensitiveContains(query))

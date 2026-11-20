@@ -79,7 +79,6 @@ final class MarketParsingTests: XCTestCase {
 
 private struct FailingService: MarketServing {
     func historyPage(for instrument: Instrument, range: ChartRange, before: Date) async throws -> HistoryPage { throw MarketError.noData }
-    func p2pOffers(side: P2PTradeSide) async throws -> P2POfferBook { throw URLError(.notConnectedToInternet) }
     func snapshot(for instrument: Instrument) async throws -> MarketSnapshot { throw URLError(.notConnectedToInternet) }
     func history(for instrument: Instrument, range: ChartRange) async throws -> ChartSeries { throw URLError(.notConnectedToInternet) }
     func p2p(buy: Bool) async throws -> P2PSide { throw URLError(.notConnectedToInternet) }
@@ -88,7 +87,6 @@ private struct FailingService: MarketServing {
 
 private struct PartialP2PService: MarketServing {
     func historyPage(for instrument: Instrument, range: ChartRange, before: Date) async throws -> HistoryPage { throw MarketError.noData }
-    func p2pOffers(side: P2PTradeSide) async throws -> P2POfferBook { throw URLError(.notConnectedToInternet) }
     func snapshot(for instrument: Instrument) async throws -> MarketSnapshot { throw URLError(.notConnectedToInternet) }
     func history(for instrument: Instrument, range: ChartRange) async throws -> ChartSeries { throw URLError(.notConnectedToInternet) }
     func p2p(buy: Bool) async throws -> P2PSide {

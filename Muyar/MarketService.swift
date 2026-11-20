@@ -5,14 +5,12 @@ protocol MarketServing: Sendable {
     func history(for instrument: Instrument, range: ChartRange) async throws -> ChartSeries
     func historyPage(for instrument: Instrument, range: ChartRange, before: Date) async throws -> HistoryPage
     func p2p(buy: Bool) async throws -> P2PSide
-    func p2pOffers(side: P2PTradeSide) async throws -> P2POfferBook
     func search(_ query: String, crypto: Bool) async throws -> [Instrument]
 }
 
 actor MarketService: MarketServing {
     private let session: URLSession
     private var cryptoCatalog: [Instrument]?
-    private var paymentMethods: [String: String]?
     init(session: URLSession = .shared) { self.session = session }
 
     private func data(host: String, path: String, query: [String: String]) async throws -> Data {
@@ -111,21 +109,6 @@ actor MarketService: MarketServing {
     func p2p(buy: Bool) async throws -> P2PSide {
         let raw = try await data(host: "www.binance.com", path: "/bapi/c2c/v1/public/c2c/agent/quote-price", query: ["fiat": "MMK", "asset": "USDT", "tradeType": buy ? "BUY" : "SELL"])
         return try MarketParsing.p2p(raw, now: Date())
-    }
-
-    func p2pOffers(side: P2PTradeSide) async throws -> P2POfferBook {
-        // Binance's public agent endpoint uses the viewer's side: BUY means pay MMK for USDT.
-        // Inspect its maximum 20 returned ads and rank those locally; do not infer direction
-        // from an advertiser's own BUY/SELL terminology or from the reference quote.
-        let raw = try await data(host: "www.binance.com", path: "/bapi/c2c/v1/public/c2c/agent/ad-list",
-                                 query: ["fiat": "MMK", "asset": "USDT", "tradeType": side.rawValue, "limit": "20"])
-        let fetchedAt = Date()
-        if paymentMethods == nil {
-            if let rawMethods = try? await data(host: "www.binance.com", path: "/bapi/c2c/v1/public/c2c/agent/trade-methods", query: ["fiat": "MMK"]) {
-                paymentMethods = try? P2POfferParsing.methods(rawMethods)
-            }
-        }
-        return try P2POfferParsing.book(raw, side: side, methods: paymentMethods ?? [:], now: fetchedAt)
     }
 
     func search(_ query: String, crypto: Bool) async throws -> [Instrument] {

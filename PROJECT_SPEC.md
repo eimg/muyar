@@ -4,7 +4,7 @@
 
 An iPhone-only personal market tracker, installed locally on a paired device. No App Store distribution. Fast daily observation without an exchange login. Native SwiftUI and Swift Charts, minimum iOS 17, portrait. No external dependencies.
 
-UI preference: data only. No marketing copy, warning paragraphs, educational boilerplate, or decorative taglines. Show prices, charts, offers, limits, payment methods, counts and timestamps. Keep necessary empty/error/saved states short. Source and instrument type are factual labels, not advisory text.
+UI preference: data only. No marketing copy, warning paragraphs, educational boilerplate, or decorative taglines. Show prices, charts, counts and timestamps. Keep necessary empty/error/saved states short. Source and instrument type are factual labels, not advisory text.
 
 Appearance: gold accents on warm light or charcoal dark surfaces; keep green/red for price direction. A subtle three-icon System / Light / Dark control sits at the bottom of the watchlist. Save the choice in UserDefaults, default to System, and apply it across navigation, charts and sheets. The app icon uses the same gold palette.
 
@@ -12,7 +12,7 @@ Appearance: gold accents on warm light or charcoal dark surfaces; keep green/red
 
 Watchlist defaults: GC=F (COMEX gold futures), CL=F (WTI crude futures), BTCUSDT, ETHUSDT, AAPL, NVDA. Users can add supported instruments, prevent duplicates, remove all defaults if desired, reorder, and filter by category. USDT/MMK P2P reference card is fixed above the watchlist.
 
-P2P independently refreshes BUY and SELL reference quotes. Show MMK per USDT and fetch time, never claim an executable offer, and distinguish USDT from USD. Tapping the fixed P2P card opens a sheet with up to five offers on each side. BUY is the viewer paying MMK to sellers, sorted cheapest first; SELL is the viewer receiving MMK from buyers, sorted highest first. Rank among up to 20 public returned listings per direction. Show advertiser name, price, MMK limits, available USDT, payment methods, 30-day order count and completion fraction when supplied. No payment or amount filter in this version. No P2P history, chart, order list, account integration, or trade execution.
+P2P independently refreshes BUY and SELL reference prices through the unauthenticated quote-price endpoint. Show MMK per USDT and fetch time, label the card “Reference prices”, and distinguish USDT from USD. The card is static, with no tap action, offer sheet, advertiser data or ad/payment-method requests. Public MMK ad retrieval was not usable in this integration; the app supports reference quotes only. No P2P history, chart, account integration or trade execution.
 
 Detail chart presets 4H, 1D, 1W and 1M choose 5m, 30m, 4h and 1D bars with initial windows of 48, 48, 42 and 30 observations. Candle and line icon buttons save the user's style preference. A single control row places style icons on the left and earlier/calendar/newer/latest icons on the right (Latest is a calendar displaying today's day number); there are no zoom buttons. Render real OHLC candles: up bodies green, down red, neutral dojis and full high/low wicks. Line mode uses real closing observations even if OHLC is incomplete. Tap selection shows price/time and, for candles, O/H/L/C; otherwise show the latest visible observation. Never synthesize OHLC or fill missing periods. Yahoo hourly data aggregates into UTC four-hour buckets. Observations have equal horizontal spacing, compressing closed sessions while keeping real dates in axis labels and readouts. Home sparklines stay close-price lines.
 
@@ -29,8 +29,6 @@ A manifest-backed catalog of 103 bundled vector marks covers 70 company brands, 
 - `MarketStore.swift`: main-actor observable state, independent fetch failures, watchlist mutations, atomic file-protected Application Support JSON. Retain last successful values on failure and ignore responses for removed instruments.
 - `MuyarApp.swift`: app entry. `PreviewMarketService.swift` provides explicit Debug-only fixture data for isolated UI tests.
 - `WatchlistView.swift`: dashboard, P2P card, edit sheet, filters, foreground refresh loop.
-- `P2POffers.swift`: explicit viewer-side enum, public ad/payment DTO decoding, validation, ranking/deduplication, independent per-direction observable refresh state.
-- `P2POffersView.swift`: offer comparison sheet, per-side empty/error/saved states, pull/manual/foreground refresh and a one-minute foreground refresh loop.
 - `ChartHistory.swift`: chart styles, observed samples, provider history limits, paged loading with cancellation guards, zoom/scroll state, visible scales and retries.
 - `InstrumentDetailView.swift`: chart style/range controls, horizontal scrolling, pinch zoom, touch selection, date navigation and quote details.
 - `AddInstrumentView.swift`: debounced search, duplicate handling, suggestions.
@@ -40,7 +38,6 @@ A manifest-backed catalog of 103 bundled vector marks covers 70 company brands, 
 
 All feeds are contacted directly from iOS; there is no hosted backend. No background collection. Refresh on foreground, every five minutes while active, and user request. Persist latest successful snapshots and current chart points for immediate display; P2P storage contains only the latest value per direction. A fetch older than ten minutes or failed refresh is marked saved. No fake production values.
 
-Offer books remain in memory for the sheet's lifetime. Failed refreshes retain the last successful book with a saved/error label. Successful empty responses replace old books and say only that the public source returned no offers. Reject mixed pairs, invalid prices/limits, sold-out quantities, duplicate IDs, and mismatched side responses. Never create advertisements from reference quotes or interpret an empty list as zero market liquidity. Payment identifiers are resolved using the public source's method catalog, with the identifier displayed if unavailable.
 
 ## Validation and delivery
 

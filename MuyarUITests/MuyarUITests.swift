@@ -4,41 +4,6 @@ final class MuyarUITests: XCTestCase {
     override func setUpWithError() throws { continueAfterFailure = false }
 
     @MainActor
-    func testP2PCardOpensFiveOffersPerSide() throws {
-        let app = XCUIApplication()
-        app.launchArguments = ["-ui-testing", "-chart-style", "Candles"]
-        app.launch()
-        let card = app.buttons["p2p-open-offers"]
-        XCTAssertTrue(card.waitForExistence(timeout: 10))
-        card.tap()
-        XCTAssertTrue(app.navigationBars["USDT / MMK offers"].waitForExistence(timeout: 5))
-        for side in ["BUY", "SELL"] {
-            for rank in 1...5 {
-                let row = app.otherElements["p2p-offer-\(side)-\(rank)"]
-                for _ in 0..<6 {
-                    if row.exists && row.isHittable { break }
-                    app.swipeUp()
-                }
-                XCTAssertTrue(row.exists)
-                XCTAssertTrue(row.label.contains(side == "BUY" ? "Seller" : "Buyer"))
-            }
-        }
-        app.buttons["Done"].tap()
-        XCTAssertTrue(app.buttons["p2p-open-offers"].exists)
-    }
-
-    @MainActor
-    func testP2PEmptyAdsDoNotBecomeInventedOffers() throws {
-        let app = XCUIApplication()
-        app.launchArguments = ["-ui-testing", "-empty-p2p-offers", "-open-p2p"]
-        app.launch()
-        XCTAssertTrue(app.otherElements["p2p-empty-BUY"].waitForExistence(timeout: 10))
-        app.swipeUp()
-        XCTAssertTrue(app.otherElements["p2p-empty-SELL"].waitForExistence(timeout: 5))
-        XCTAssertFalse(app.otherElements["p2p-offer-BUY-1"].exists)
-    }
-
-    @MainActor
     func testWatchlistP2PAndAllChartRanges() throws {
         let app = XCUIApplication()
         app.launchArguments = ["-ui-testing", "-chart-style", "Candles"]
@@ -46,6 +11,8 @@ final class MuyarUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["p2p-buy-price"].waitForExistence(timeout: 10))
         XCTAssertEqual(app.staticTexts["p2p-buy-price"].label, "5,160")
         XCTAssertEqual(app.staticTexts["p2p-sell-price"].label, "5,148")
+        XCTAssertTrue(app.staticTexts["Reference prices"].exists)
+        XCTAssertFalse(app.buttons["p2p-open-offers"].exists)
         app.buttons["filter-Crypto"].tap()
         app.buttons["instrument-BTCUSDT"].tap()
         XCTAssertTrue(app.staticTexts["detail-price"].waitForExistence(timeout: 5))

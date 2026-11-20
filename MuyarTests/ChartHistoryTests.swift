@@ -36,7 +36,6 @@ private actor HistoryTestService: MarketServing {
     func snapshot(for instrument: Instrument) async throws -> MarketSnapshot { throw MarketError.noData }
     func history(for instrument: Instrument, range: ChartRange) async throws -> ChartSeries { throw MarketError.noData }
     func p2p(buy: Bool) async throws -> P2PSide { throw MarketError.noData }
-    func p2pOffers(side: P2PTradeSide) async throws -> P2POfferBook { throw MarketError.noData }
     func search(_ query: String, crypto: Bool) async throws -> [Instrument] { [] }
 }
 
