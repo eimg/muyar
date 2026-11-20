@@ -29,6 +29,9 @@ enum MuyarTheme {
     static let muted = adaptive(light: (0.44, 0.41, 0.35), dark: (0.65, 0.63, 0.58))
     static let red = adaptive(light: (0.75, 0.20, 0.22), dark: (1, 0.49, 0.48))
     static let p2pTint = adaptive(light: (0.98, 0.94, 0.83), dark: (0.16, 0.135, 0.085))
+    static let bitcoin = adaptive(light: (0.72, 0.34, 0.02), dark: (0.97, 0.62, 0.17))
+    static let ethereum = adaptive(light: (0.32, 0.40, 0.66), dark: (0.64, 0.69, 0.88))
+    static let nvidia = adaptive(light: (0.35, 0.48, 0), dark: (0.60, 0.80, 0.10))
 
     private static func adaptive(light: (Double, Double, Double), dark: (Double, Double, Double)) -> Color {
         Color(uiColor: UIColor { traits in
@@ -70,12 +73,35 @@ struct AppearanceControl: View {
 
 struct AssetIcon: View {
     let instrument: Instrument
+    private var color: Color {
+        switch instrument.brand {
+        case .bitcoin: return MuyarTheme.bitcoin
+        case .ethereum: return MuyarTheme.ethereum
+        case .apple, .microsoft, .solana: return .primary
+        case .nvidia: return MuyarTheme.nvidia
+        case .tether: return MuyarTheme.positive
+        case .tesla: return MuyarTheme.red
+        case .binance, .dogecoin: return MuyarTheme.gold
+        case .cardano, .litecoin, .ripple: return MuyarTheme.color(for: .energy)
+        case nil: return MuyarTheme.color(for: instrument.category)
+        }
+    }
     var body: some View {
-        Text(instrument.monogram)
-            .font(.system(size: instrument.monogram.count > 2 ? 13 : 17, weight: .semibold, design: .rounded))
-            .foregroundStyle(MuyarTheme.color(for: instrument.category))
+        Group {
+            if let brand = instrument.brand {
+                Image(brand.assetName)
+                    .renderingMode(brand == .microsoft ? .original : .template)
+                    .resizable().scaledToFit().frame(width: 24, height: 24)
+            } else if instrument.symbol == "CL=F" || instrument.symbol == "BZ=F" {
+                Image(systemName: "drop.fill").font(.system(size: 23))
+            } else {
+                Text(instrument.monogram)
+                    .font(.system(size: instrument.monogram.count > 2 ? 13 : 17, weight: .semibold, design: .rounded))
+            }
+        }
+            .foregroundStyle(color)
             .frame(width: 43, height: 43)
-            .background(MuyarTheme.color(for: instrument.category).opacity(0.10), in: RoundedRectangle(cornerRadius: 14))
+            .background(color.opacity(0.10), in: RoundedRectangle(cornerRadius: 14))
             .accessibilityHidden(true)
     }
 }

@@ -20,6 +20,8 @@ Charts support horizontal scrolling, pinch zoom (8–160 observed bars, bounded 
 
 Watchlist percent change: source 24-hour change for Binance, previous-close change for Yahoo. Detail percent change: visible first candle open to last candle close, or first/last close in Line mode. Futures, units, currency, session status, source, quote time, and fetch time are factual labels.
 
+Known crypto/company assets use bundled vector brand marks across watchlist, detail, search and editing. Resolve crypto marks from the exact base asset using its quote currency; similar prefixes must not inherit an unrelated brand. Unsupported symbols retain monograms. Oil futures use a droplet symbol. No runtime logo requests. Icon sources and licensing are recorded under `ThirdParty/`.
+
 ## Architecture
 
 - `Models.swift`: provider-independent instruments, quotes, OHLC candles, aggregation, wick-aware series domains, formatting, and range semantics. Latest quote caches optionally include OHLC; existing close-only caches remain readable but cannot be plotted as candles.
@@ -33,7 +35,8 @@ Watchlist percent change: source 24-hour change for Binance, previous-close chan
 - `InstrumentDetailView.swift`: chart style/range controls, horizontal scrolling, pinch zoom, touch selection, date navigation and quote details.
 - `AddInstrumentView.swift`: debounced search, duplicate handling, suggestions.
 - `AppAppearance.swift`: shared appearance preference and a Debug preview flag whose name cannot shadow the saved choice.
-- `Theme.swift`: adaptive gold palettes, appearance control, instrument icon, sparkline and shared labels.
+- `InstrumentBrand.swift`: exact provider/base-asset/ticker matching for bundled brand marks, with no prefix matching.
+- `Theme.swift`: adaptive gold palettes, appearance control, contrast-aware brand/commodity icons, sparkline and shared labels.
 
 All feeds are contacted directly from iOS; there is no hosted backend. No background collection. Refresh on foreground, every five minutes while active, and user request. Persist latest successful snapshots and current chart points for immediate display; P2P storage contains only the latest value per direction. A fetch older than ten minutes or failed refresh is marked saved. No fake production values.
 
