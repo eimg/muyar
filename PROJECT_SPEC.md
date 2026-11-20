@@ -20,7 +20,7 @@ Charts support horizontal scrolling, pinch zoom (8–160 observed bars, bounded 
 
 Watchlist percent change: source 24-hour change for Binance, previous-close change for Yahoo. Detail percent change: visible first candle open to last candle close, or first/last close in Line mode. Futures, units, currency, session status, source, quote time, and fetch time are factual labels.
 
-Known crypto/company assets use bundled vector brand marks across watchlist, detail, search and editing. Resolve crypto marks from the exact base asset using its quote currency; similar prefixes must not inherit an unrelated brand. Unsupported symbols retain monograms. Oil futures use a droplet symbol. No runtime logo requests. Icon sources and licensing are recorded under `ThirdParty/`.
+A manifest-backed catalog of 103 bundled vector marks covers 70 company brands, 30 crypto assets and three reserved marks (SpaceX, Anthropic, OpenAI), independent of the watchlist. Reserved marks have no speculative ticker mapping and create no instrument rows or quotes. Known crypto/company assets use bundled vector brand marks across watchlist, detail, search and editing. Resolve crypto marks from the exact base asset using its quote currency; similar prefixes must not inherit an unrelated brand. Unsupported symbols retain monograms. Gold futures use a locally drawn brick, DXY uses a dollar sign and oil futures use a droplet. No runtime logo requests. Icon sources and licensing are recorded under `ThirdParty/`.
 
 ## Architecture
 
@@ -35,7 +35,7 @@ Known crypto/company assets use bundled vector brand marks across watchlist, det
 - `InstrumentDetailView.swift`: chart style/range controls, horizontal scrolling, pinch zoom, touch selection, date navigation and quote details.
 - `AddInstrumentView.swift`: debounced search, duplicate handling, suggestions.
 - `AppAppearance.swift`: shared appearance preference and a Debug preview flag whose name cannot shadow the saved choice.
-- `InstrumentBrand.swift`: exact provider/base-asset/ticker matching for bundled brand marks, with no prefix matching.
+- `InstrumentBrand.swift`: generated exact provider/base-asset/ticker mappings from `ThirdParty/BrandIcons/catalog.json`; no prefix matching. `scripts/update-brand-icons.py` regenerates and validates bundled assets and mappings, with pinned source hashes.
 - `Theme.swift`: adaptive gold palettes, appearance control, contrast-aware brand/commodity icons, sparkline and shared labels.
 
 All feeds are contacted directly from iOS; there is no hosted backend. No background collection. Refresh on foreground, every five minutes while active, and user request. Persist latest successful snapshots and current chart points for immediate display; P2P storage contains only the latest value per direction. A fetch older than ten minutes or failed refresh is marked saved. No fake production values.

@@ -25,10 +25,19 @@ struct MuyarApp: App {
 
     var body: some Scene {
         WindowGroup {
-            WatchlistView()
+            rootView
                 .environmentObject(store)
                 .preferredColorScheme(AppAppearance(rawValue: appearance)?.colorScheme)
                 .tint(MuyarTheme.accent)
         }
+    }
+
+    @ViewBuilder private var rootView: some View {
+        #if DEBUG
+        if ProcessInfo.processInfo.arguments.contains("-preview-brand-icons") { IconCatalogPreview() }
+        else { WatchlistView() }
+        #else
+        WatchlistView()
+        #endif
     }
 }

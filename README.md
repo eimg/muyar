@@ -33,7 +33,7 @@ Alternatively, run `bash scripts/install-iphone.sh DEVICE_IDENTIFIER` using an i
 
 - Initial watchlist: COMEX gold futures, WTI crude futures, BTC/USDT, ETH/USDT, Apple, NVIDIA.
 - Search supported stocks/ETFs/indices and Binance spot pairs; add, remove, and reorder instruments.
-- Bundled brand icons for known crypto assets and companies, including Bitcoin, Ethereum, Solana, Apple, NVIDIA, Microsoft and Tesla. Icons follow the crypto base asset across quote pairs; unknown symbols keep a monogram. Oil futures use a droplet.
+- 103 bundled brand marks covering 70 company brands, 30 crypto assets, and reserved SpaceX, Anthropic and OpenAI marks. Icons are available before adding an instrument; the reserved marks have no speculative tickers or prices. Icons follow the crypto base asset across quote pairs; unknown symbols keep a monogram. Gold uses a brick, DXY a dollar sign, and oil futures a droplet.
 - Category filters and a compact sparkline per available day series.
 - Gold accents with light and dark palettes. A small System / Light / Dark icon control at the bottom of the watchlist saves the appearance choice; System follows iOS. Charts and sheets follow the same appearance. The app icon uses the matching gold mark.
 - Detail charts use candle and line icon buttons in a single control row, with date navigation on the right and the style choice saved on-device. Candles use real OHLC bodies, high/low wicks, neutral dojis and a tapped O/H/L/C readout; lines use available closing prices, including rows without complete OHLC. Home sparklines remain close-price lines.
@@ -86,3 +86,5 @@ swift -module-cache-path build/ModuleCache scripts/generate-icon.swift \
 P2P snapshot collection/history, a reachable feed relay if needed, optional alerts, and a licensed market-data provider. None is required for this version.
 
 Brand icon sources and license information are in [ThirdParty/README.md](ThirdParty/README.md). Icons are bundled locally; no logo service or extra network calls are used.
+
+The complete [icon catalog](ThirdParty/BrandIcons/README.md) lists supported symbols. A Debug launch with `-preview-brand-icons` shows the bundled marks; add `-preview-icons-bottom` for the end of the catalog. Neither preview exists in Release.

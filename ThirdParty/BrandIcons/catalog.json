@@ -1,0 +1,1267 @@
+{
+  "sources": {
+    "simple16": {
+      "url": "https://registry.npmjs.org/simple-icons/-/simple-icons-16.0.0.tgz",
+      "archive": "simple.tgz",
+      "sha256": "6b980504aba52fccdc723436f7b599c50a2e8b88bb8738d6088cb6cac1dad213"
+    },
+    "simple13": {
+      "url": "https://registry.npmjs.org/simple-icons/-/simple-icons-13.0.0.tgz",
+      "archive": "simple13.tgz",
+      "sha256": "95eff7ec9779578c91f9816cb82431bc7cce18375046845ec73c9876cf16c3bd"
+    },
+    "crypto": {
+      "url": "https://registry.npmjs.org/cryptocurrency-icons/-/cryptocurrency-icons-0.18.1.tgz",
+      "archive": "crypto.tgz",
+      "sha256": "03334621204a65309bcdb295548e762fce5b8e5286b4822e8ad3777efd966189"
+    }
+  },
+  "icons": [
+    {
+      "id": "apple",
+      "name": "Apple",
+      "market": "stocks",
+      "symbols": [
+        "AAPL"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/apple.svg",
+      "sha256": "2a1509dccd25e6d2bc7a11a8e52941077e1a48555e192ce638699b9f083c2a7c"
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "market": "stocks",
+      "symbols": [
+        "MSFT"
+      ],
+      "tint": "original",
+      "source": "local",
+      "path": "microsoft.svg",
+      "sha256": "b290729d6de7488a57df1f8af58a53f9ff95b9beaa01796377d82e1629513682"
+    },
+    {
+      "id": "nvidia",
+      "name": "NVIDIA",
+      "market": "stocks",
+      "symbols": [
+        "NVDA"
+      ],
+      "tint": "nvidia",
+      "source": "simple16",
+      "path": "package/icons/nvidia.svg",
+      "sha256": "b0e4cfc12712c840d4d630c9a717200fbd09aeeadbd3faeac13bda2e2ed050b0"
+    },
+    {
+      "id": "tesla",
+      "name": "Tesla",
+      "market": "stocks",
+      "symbols": [
+        "TSLA"
+      ],
+      "tint": "red",
+      "source": "simple16",
+      "path": "package/icons/tesla.svg",
+      "sha256": "4b94d9eaf23849d6feec7a9c819e3699a35cbb76045ba7d482d17cbcc97414a5"
+    },
+    {
+      "id": "google",
+      "name": "Alphabet / Google",
+      "market": "stocks",
+      "symbols": [
+        "GOOG",
+        "GOOGL"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/google.svg",
+      "sha256": "d8cf9fb2d5e234e03254f1d6400d8cc8160c309b010d031a64f37084b5a21d01"
+    },
+    {
+      "id": "amazon",
+      "name": "Amazon",
+      "market": "stocks",
+      "symbols": [
+        "AMZN"
+      ],
+      "tint": "primary",
+      "source": "simple13",
+      "path": "package/icons/amazon.svg",
+      "sha256": "f7ef379d2ea0da19e63e74e394ec6a1423e335ef785a456729da66a840858dbf"
+    },
+    {
+      "id": "meta",
+      "name": "Meta",
+      "market": "stocks",
+      "symbols": [
+        "META"
+      ],
+      "tint": "blue",
+      "source": "simple16",
+      "path": "package/icons/meta.svg",
+      "sha256": "e3e9db62f59dc477e5917687349b8aa9685b841d40300c1afad60ad85075cd2e"
+    },
+    {
+      "id": "netflix",
+      "name": "Netflix",
+      "market": "stocks",
+      "symbols": [
+        "NFLX"
+      ],
+      "tint": "red",
+      "source": "simple16",
+      "path": "package/icons/netflix.svg",
+      "sha256": "67dbc495988bd5667a09ed4f56e14db4070a44c7a74e297b146c229f70fd6f6e"
+    },
+    {
+      "id": "adobe",
+      "name": "Adobe",
+      "market": "stocks",
+      "symbols": [
+        "ADBE"
+      ],
+      "tint": "red",
+      "source": "simple13",
+      "path": "package/icons/adobe.svg",
+      "sha256": "f52f92ca8caa174286ecd26be270f1667dc800f0a5c23af3defba59a24711688"
+    },
+    {
+      "id": "salesforce",
+      "name": "Salesforce",
+      "market": "stocks",
+      "symbols": [
+        "CRM"
+      ],
+      "tint": "blue",
+      "source": "simple13",
+      "path": "package/icons/salesforce.svg",
+      "sha256": "9f8adb4f73acb235b2fe1c721f17d915d3559c905d1de9c7b678d76d0687eb08"
+    },
+    {
+      "id": "oracle",
+      "name": "Oracle",
+      "market": "stocks",
+      "symbols": [
+        "ORCL"
+      ],
+      "tint": "red",
+      "source": "simple13",
+      "path": "package/icons/oracle.svg",
+      "sha256": "d355bd1561de9aea08928e662bdce5b4834f0dcb6096aa0b04b4eed23fc1fcb9"
+    },
+    {
+      "id": "intel",
+      "name": "Intel",
+      "market": "stocks",
+      "symbols": [
+        "INTC"
+      ],
+      "tint": "blue",
+      "source": "simple16",
+      "path": "package/icons/intel.svg",
+      "sha256": "25d0d4387af0999eb5dc79b165ecfd7b972ff43047406da533f3207ac92c0a57"
+    },
+    {
+      "id": "amd",
+      "name": "AMD",
+      "market": "stocks",
+      "symbols": [
+        "AMD"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/amd.svg",
+      "sha256": "c4c2f985dc1427aa7a54e3f80ef5ca35dba911bbed184a0dc6def148c1dfa420"
+    },
+    {
+      "id": "qualcomm",
+      "name": "Qualcomm",
+      "market": "stocks",
+      "symbols": [
+        "QCOM"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/qualcomm.svg",
+      "sha256": "9c061b0000cfdf73bf32964c36976b041509816f991fb9385b2b6f4cca6088e5"
+    },
+    {
+      "id": "broadcom",
+      "name": "Broadcom",
+      "market": "stocks",
+      "symbols": [
+        "AVGO"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/broadcom.svg",
+      "sha256": "1ffeecaac8bf5a6c5a5dc9aa1bd788b80777c81231049fd164dc0157a2c24d1e"
+    },
+    {
+      "id": "cisco",
+      "name": "Cisco",
+      "market": "stocks",
+      "symbols": [
+        "CSCO"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/cisco.svg",
+      "sha256": "005c240c62355768860ad0bb19820033bc840ee390192c7139f8777d78291391"
+    },
+    {
+      "id": "sap",
+      "name": "SAP",
+      "market": "stocks",
+      "symbols": [
+        "SAP",
+        "SAP.DE"
+      ],
+      "tint": "blue",
+      "source": "simple16",
+      "path": "package/icons/sap.svg",
+      "sha256": "79127bd0cdb41e5940ddbe895da58c4fe1fb6a912a7178f4bb4e108fb39c8758"
+    },
+    {
+      "id": "dell",
+      "name": "Dell",
+      "market": "stocks",
+      "symbols": [
+        "DELL"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/dell.svg",
+      "sha256": "be787bc8a294cecf64f7197b36f3f095583b2274f13ab336e7dabfe582353c45"
+    },
+    {
+      "id": "hp",
+      "name": "HP",
+      "market": "stocks",
+      "symbols": [
+        "HPQ"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/hp.svg",
+      "sha256": "29c08a63cdea89850876a3840d93096b4125151dbba17a27926a08f9f3b0f788"
+    },
+    {
+      "id": "snowflake",
+      "name": "Snowflake",
+      "market": "stocks",
+      "symbols": [
+        "SNOW"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/snowflake.svg",
+      "sha256": "75690c4c666a406278286284f89896e8ef55dd0bfbc791acb910ce40e4a46aa9"
+    },
+    {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "market": "stocks",
+      "symbols": [
+        "NET"
+      ],
+      "tint": "gold",
+      "source": "simple16",
+      "path": "package/icons/cloudflare.svg",
+      "sha256": "408096d99907fd99e0863cb5d73f77a72537c6a85fd8d5e2704178a83a891f08"
+    },
+    {
+      "id": "datadog",
+      "name": "Datadog",
+      "market": "stocks",
+      "symbols": [
+        "DDOG"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/datadog.svg",
+      "sha256": "2dae0a9ddf090ec01626d9d0f73b1740a70ad280de92e2c27136bc81151fd1ff"
+    },
+    {
+      "id": "palantir",
+      "name": "Palantir",
+      "market": "stocks",
+      "symbols": [
+        "PLTR"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/palantir.svg",
+      "sha256": "0ea58cb945cc09a7edbb96ca6de7ee3854f16d0a559014e9d3fcb4bdbbbb1cc7"
+    },
+    {
+      "id": "paloaltonetworks",
+      "name": "Palo Alto Networks",
+      "market": "stocks",
+      "symbols": [
+        "PANW"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/paloaltonetworks.svg",
+      "sha256": "47b46a688d2117b938251c0a36568593562a07c221493f9d04bd1e0e536b1456"
+    },
+    {
+      "id": "fortinet",
+      "name": "Fortinet",
+      "market": "stocks",
+      "symbols": [
+        "FTNT"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/fortinet.svg",
+      "sha256": "5feafff8531436630ccd7d5c2e80819ee74c1820fdba23d98057eebe02553b86"
+    },
+    {
+      "id": "mongodb",
+      "name": "MongoDB",
+      "market": "stocks",
+      "symbols": [
+        "MDB"
+      ],
+      "tint": "positive",
+      "source": "simple16",
+      "path": "package/icons/mongodb.svg",
+      "sha256": "6698757ee85997e8167b2eacaff8395d6987954185488f2e90b88ef387fec6c7"
+    },
+    {
+      "id": "atlassian",
+      "name": "Atlassian",
+      "market": "stocks",
+      "symbols": [
+        "TEAM"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/atlassian.svg",
+      "sha256": "88a88e7a09df2ab7d2e6beefc1c6d8393073fdea18616a4bcc25a30145228edf"
+    },
+    {
+      "id": "shopify",
+      "name": "Shopify",
+      "market": "stocks",
+      "symbols": [
+        "SHOP"
+      ],
+      "tint": "positive",
+      "source": "simple16",
+      "path": "package/icons/shopify.svg",
+      "sha256": "a5ea31f53511bb0b3663cb73ff96eaa8d0451fe9cad586625adfc02b729e4d4d"
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify",
+      "market": "stocks",
+      "symbols": [
+        "SPOT"
+      ],
+      "tint": "positive",
+      "source": "simple16",
+      "path": "package/icons/spotify.svg",
+      "sha256": "b9ec9bec7769c35643981586d6ea0d675aaf3871b32f8a291bcac7a87fff0bc1"
+    },
+    {
+      "id": "uber",
+      "name": "Uber",
+      "market": "stocks",
+      "symbols": [
+        "UBER"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/uber.svg",
+      "sha256": "8e580232236d43c715637618ce31621f2afc802a22af9b12706dc153c6a52002"
+    },
+    {
+      "id": "airbnb",
+      "name": "Airbnb",
+      "market": "stocks",
+      "symbols": [
+        "ABNB"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/airbnb.svg",
+      "sha256": "04afb2a1db3f619be9030b38fd43440034a58db16adc8fed49de87b90b9e2778"
+    },
+    {
+      "id": "doordash",
+      "name": "DoorDash",
+      "market": "stocks",
+      "symbols": [
+        "DASH"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/doordash.svg",
+      "sha256": "d4722809d3377dfc36aae584598de10e38a2e1a6f0ef089251b2c2d7d73e7d5c"
+    },
+    {
+      "id": "paypal",
+      "name": "PayPal",
+      "market": "stocks",
+      "symbols": [
+        "PYPL"
+      ],
+      "tint": "blue",
+      "source": "simple16",
+      "path": "package/icons/paypal.svg",
+      "sha256": "e8ea6928d3386f81dc6d4c1f58b48e7a29d29bb578b2e3dd808638bd97c63d33"
+    },
+    {
+      "id": "visa",
+      "name": "Visa",
+      "market": "stocks",
+      "symbols": [
+        "V"
+      ],
+      "tint": "blue",
+      "source": "simple16",
+      "path": "package/icons/visa.svg",
+      "sha256": "7cce4eea7b16b6eddf60d7d78b7b814d13ab3001bfa5e184480a7ff4a895e4ad"
+    },
+    {
+      "id": "mastercard",
+      "name": "Mastercard",
+      "market": "stocks",
+      "symbols": [
+        "MA"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/mastercard.svg",
+      "sha256": "b6e25beff2c54363d6c79d58a7c924cd484908c8f6203388b6c1fe34accfffaa"
+    },
+    {
+      "id": "americanexpress",
+      "name": "American Express",
+      "market": "stocks",
+      "symbols": [
+        "AXP"
+      ],
+      "tint": "blue",
+      "source": "simple16",
+      "path": "package/icons/americanexpress.svg",
+      "sha256": "ff353acb8288d8466d45f757dd02106fbf464362a663160edd3f8d3f2347e0f4"
+    },
+    {
+      "id": "coinbase",
+      "name": "Coinbase",
+      "market": "stocks",
+      "symbols": [
+        "COIN"
+      ],
+      "tint": "blue",
+      "source": "simple16",
+      "path": "package/icons/coinbase.svg",
+      "sha256": "94dd360e4a750ce3a902c8bd7c83d9db8078bf923e4a040b538d92e0967a9d4d"
+    },
+    {
+      "id": "robinhood",
+      "name": "Robinhood",
+      "market": "stocks",
+      "symbols": [
+        "HOOD"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/robinhood.svg",
+      "sha256": "2f48f18882e7a463dea8edca079c11a2490177b6d7d74fc7ef4d20572068e5f0"
+    },
+    {
+      "id": "walmart",
+      "name": "Walmart",
+      "market": "stocks",
+      "symbols": [
+        "WMT"
+      ],
+      "tint": "primary",
+      "source": "simple13",
+      "path": "package/icons/walmart.svg",
+      "sha256": "e7deae878c81e93ef8e23de0465795a966043284d2a3e69a2e0044246cc08240"
+    },
+    {
+      "id": "target",
+      "name": "Target",
+      "market": "stocks",
+      "symbols": [
+        "TGT"
+      ],
+      "tint": "red",
+      "source": "simple16",
+      "path": "package/icons/target.svg",
+      "sha256": "4085202ff6b3e3de8752f93bbc7677f37d7a3e8e868b60dda6a89e120a4f9948"
+    },
+    {
+      "id": "mcdonalds",
+      "name": "McDonald's",
+      "market": "stocks",
+      "symbols": [
+        "MCD"
+      ],
+      "tint": "gold",
+      "source": "simple16",
+      "path": "package/icons/mcdonalds.svg",
+      "sha256": "35c203615d2d5d61184ea1f4ded91ebbf329a59e7e2d52e0a640f3b8fd8b740a"
+    },
+    {
+      "id": "starbucks",
+      "name": "Starbucks",
+      "market": "stocks",
+      "symbols": [
+        "SBUX"
+      ],
+      "tint": "positive",
+      "source": "simple16",
+      "path": "package/icons/starbucks.svg",
+      "sha256": "b12ac9042b77a04d88f28e5be655719dd1e321b0b700ea5a280df4e1ca8c23c8"
+    },
+    {
+      "id": "cocacola",
+      "name": "Coca-Cola",
+      "market": "stocks",
+      "symbols": [
+        "KO"
+      ],
+      "tint": "red",
+      "source": "simple16",
+      "path": "package/icons/cocacola.svg",
+      "sha256": "3c73054978b99314e6c4cb3aa9ffeebe4becf0f66739a3c2771878756cf402ac"
+    },
+    {
+      "id": "nike",
+      "name": "Nike",
+      "market": "stocks",
+      "symbols": [
+        "NKE"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/nike.svg",
+      "sha256": "1792451e1b6393bd1d7153830f8aa55a0a49eddd1c3b65ed6fa13c68d7d5a547"
+    },
+    {
+      "id": "adidas",
+      "name": "Adidas",
+      "market": "stocks",
+      "symbols": [
+        "ADDYY",
+        "ADS.DE"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/adidas.svg",
+      "sha256": "914191458c0f416cfb1e5ad5750c55e87bd9a6cdc38259cfba70932b30a9237b"
+    },
+    {
+      "id": "toyota",
+      "name": "Toyota",
+      "market": "stocks",
+      "symbols": [
+        "TM",
+        "7203.T"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/toyota.svg",
+      "sha256": "70a20e8335255cff3311314636ab15dbc0c5941a52d1ae5ea3471e85f40e7507"
+    },
+    {
+      "id": "honda",
+      "name": "Honda",
+      "market": "stocks",
+      "symbols": [
+        "HMC",
+        "7267.T"
+      ],
+      "tint": "red",
+      "source": "simple16",
+      "path": "package/icons/honda.svg",
+      "sha256": "ae97b9478f29718f95fc7956a3971456a8a458e9ff48f24b903ef1d6b68f2de1"
+    },
+    {
+      "id": "ferrari",
+      "name": "Ferrari",
+      "market": "stocks",
+      "symbols": [
+        "RACE"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/ferrari.svg",
+      "sha256": "583319b753b043bcfd0a06c3d5889cfe36c30d81262635ed5d24e14f31fa9735"
+    },
+    {
+      "id": "ford",
+      "name": "Ford",
+      "market": "stocks",
+      "symbols": [
+        "F"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/ford.svg",
+      "sha256": "933a0ad57caec864d69c4afb43c316018ebc54bd8e76244ffe545197236299c1"
+    },
+    {
+      "id": "generalmotors",
+      "name": "General Motors",
+      "market": "stocks",
+      "symbols": [
+        "GM"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/generalmotors.svg",
+      "sha256": "e5957f18f6ce6cb554a3e38d766bcfc7e3a820fc8b79834ae65b47e44f5bd4c3"
+    },
+    {
+      "id": "bmw",
+      "name": "BMW",
+      "market": "stocks",
+      "symbols": [
+        "BMW.DE"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/bmw.svg",
+      "sha256": "d2a396f98f388b06861ed887a0d9830ed5e32224726c2acf000250e6ef289dcf"
+    },
+    {
+      "id": "volkswagen",
+      "name": "Volkswagen",
+      "market": "stocks",
+      "symbols": [
+        "VWAGY",
+        "VOW.DE",
+        "VOW3.DE"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/volkswagen.svg",
+      "sha256": "de8379968dc31340ab9a06fd54f01d59be56f9846bc07938b9da5bd24407034f"
+    },
+    {
+      "id": "porsche",
+      "name": "Porsche",
+      "market": "stocks",
+      "symbols": [
+        "P911.DE"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/porsche.svg",
+      "sha256": "cc78f5661cf80886fa5d94bd13a0f32eca0ba39716dd8154f454bb992c8864a0"
+    },
+    {
+      "id": "boeing",
+      "name": "Boeing",
+      "market": "stocks",
+      "symbols": [
+        "BA"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/boeing.svg",
+      "sha256": "6c8518f4fe0095c15957c287588e48a188a4e8f7421da2a4c99d4021d1e4e1c6"
+    },
+    {
+      "id": "airbus",
+      "name": "Airbus",
+      "market": "stocks",
+      "symbols": [
+        "AIR.PA",
+        "EADSY"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/airbus.svg",
+      "sha256": "c17f15bb72067010bffa50a1090636fe20eeccb557514c55fba5e9ea45a5acf2"
+    },
+    {
+      "id": "generalelectric",
+      "name": "GE Aerospace",
+      "market": "stocks",
+      "symbols": [
+        "GE"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/generalelectric.svg",
+      "sha256": "6a075c90b40f29299fdbb69a35325971e76d77c029ec441382b1771b141c6af2"
+    },
+    {
+      "id": "siemens",
+      "name": "Siemens",
+      "market": "stocks",
+      "symbols": [
+        "SIE.DE",
+        "SIEGY"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/siemens.svg",
+      "sha256": "1693ea2d895352fc1dece78971eb7345424b622cea00bb99f3da551e23ec5a09"
+    },
+    {
+      "id": "caterpillar",
+      "name": "Caterpillar",
+      "market": "stocks",
+      "symbols": [
+        "CAT"
+      ],
+      "tint": "gold",
+      "source": "simple16",
+      "path": "package/icons/caterpillar.svg",
+      "sha256": "0da685b81098ec589358f29d66527a8785d17cb59a31a2f2b3b3f1916f80b616"
+    },
+    {
+      "id": "johndeere",
+      "name": "John Deere",
+      "market": "stocks",
+      "symbols": [
+        "DE"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/johndeere.svg",
+      "sha256": "231558168299f994ddb706946873a25aa3978b8bb4537d0069e97b1f6994fc2a"
+    },
+    {
+      "id": "threem",
+      "name": "3M",
+      "market": "stocks",
+      "symbols": [
+        "MMM"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/3m.svg",
+      "sha256": "20c2d88866f80d38325e81b42cce39887c84f0a4a76e995b1acdf7f003f98485"
+    },
+    {
+      "id": "samsung",
+      "name": "Samsung",
+      "market": "stocks",
+      "symbols": [
+        "005930.KS"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/samsung.svg",
+      "sha256": "4a241ca8ebab6e71883b172acb9fb454efa69f308e4f2c31ec80668aeb6627d9"
+    },
+    {
+      "id": "sony",
+      "name": "Sony",
+      "market": "stocks",
+      "symbols": [
+        "SONY",
+        "6758.T"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/sony.svg",
+      "sha256": "d012ec936e65a255f7b7b49a7e99c5aa7ab919fbc1487d8e09af82031c0e7090"
+    },
+    {
+      "id": "nintendo",
+      "name": "Nintendo",
+      "market": "stocks",
+      "symbols": [
+        "NTDOY",
+        "7974.T"
+      ],
+      "tint": "primary",
+      "source": "simple13",
+      "path": "package/icons/nintendo.svg",
+      "sha256": "4879be6f85a85297ef472d0835fb24e02a7142f7e0a5e764662f2fb0dadd0056"
+    },
+    {
+      "id": "xiaomi",
+      "name": "Xiaomi",
+      "market": "stocks",
+      "symbols": [
+        "1810.HK"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/xiaomi.svg",
+      "sha256": "8866d12a70d85ab43acd3b9c80f1b37792d91160d8273efffdf817af5fd608cb"
+    },
+    {
+      "id": "baidu",
+      "name": "Baidu",
+      "market": "stocks",
+      "symbols": [
+        "BIDU"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/baidu.svg",
+      "sha256": "e2eeaca4c5273ecff775ee4b357091678a7587b2d606190f8e5b7dce4d93a781"
+    },
+    {
+      "id": "shell",
+      "name": "Shell",
+      "market": "stocks",
+      "symbols": [
+        "SHEL",
+        "SHEL.L",
+        "SHEL.AS"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/shell.svg",
+      "sha256": "d3a4b69b3437e4e94ac7a974c2d3b9780a57cdbf82ff57e2f2558fb38d03d7cf"
+    },
+    {
+      "id": "bankofamerica",
+      "name": "Bank of America",
+      "market": "stocks",
+      "symbols": [
+        "BAC"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/bankofamerica.svg",
+      "sha256": "4af97000b06a925cf8ce6359855de2fbc502c59edcb10d26302e231d86fb8a02"
+    },
+    {
+      "id": "goldmansachs",
+      "name": "Goldman Sachs",
+      "market": "stocks",
+      "symbols": [
+        "GS"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/goldmansachs.svg",
+      "sha256": "074aa3ef86e11a67c3822464e4e23532629dc0c8976d5592febe15efc1eaf741"
+    },
+    {
+      "id": "hsbc",
+      "name": "HSBC",
+      "market": "stocks",
+      "symbols": [
+        "HSBC",
+        "HSBA.L",
+        "0005.HK"
+      ],
+      "tint": "red",
+      "source": "simple16",
+      "path": "package/icons/hsbc.svg",
+      "sha256": "d0c04fb9e0cba69e3ad9ac896241200aa8beb8a16f3271715860c27c558006bf"
+    },
+    {
+      "id": "reddit",
+      "name": "Reddit",
+      "market": "stocks",
+      "symbols": [
+        "RDDT"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/reddit.svg",
+      "sha256": "00e5008d56567543cf956561e61d5bf9bf629f520c7488a4d9a00164c29dd8ba"
+    },
+    {
+      "id": "bitcoin",
+      "name": "Bitcoin",
+      "market": "crypto",
+      "symbols": [
+        "BTC"
+      ],
+      "tint": "bitcoin",
+      "source": "simple16",
+      "path": "package/icons/bitcoin.svg",
+      "sha256": "9c1547b0246bd3e83b4ade35132279ab12d0388ae3f9f436dc6a3a9e29e68e9b"
+    },
+    {
+      "id": "ethereum",
+      "name": "Ethereum",
+      "market": "crypto",
+      "symbols": [
+        "ETH"
+      ],
+      "tint": "ethereum",
+      "source": "simple16",
+      "path": "package/icons/ethereum.svg",
+      "sha256": "0ba6a9ca2c62e9a0c7f61b3053a9065cd8b48f1f35cd782edd1f7e49b1d729c2"
+    },
+    {
+      "id": "solana",
+      "name": "Solana",
+      "market": "crypto",
+      "symbols": [
+        "SOL"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/solana.svg",
+      "sha256": "35472f0ee6e700a48c5c19c975dfe89242d987c415ec969ed5b0b6a3a487c301"
+    },
+    {
+      "id": "binance",
+      "name": "BNB",
+      "market": "crypto",
+      "symbols": [
+        "BNB"
+      ],
+      "tint": "gold",
+      "source": "simple16",
+      "path": "package/icons/binance.svg",
+      "sha256": "a788deaeb7860bd15518ba5c7e062607b5256cfb8d2c464cb0f2779b74806405"
+    },
+    {
+      "id": "tether",
+      "name": "Tether",
+      "market": "crypto",
+      "symbols": [
+        "USDT"
+      ],
+      "tint": "positive",
+      "source": "simple16",
+      "path": "package/icons/tether.svg",
+      "sha256": "9ff947f6575e80d7f455ec41451eb6bd2034311bf081ef705cb6b7e5adbfb31b"
+    },
+    {
+      "id": "dogecoin",
+      "name": "Dogecoin",
+      "market": "crypto",
+      "symbols": [
+        "DOGE"
+      ],
+      "tint": "gold",
+      "source": "simple16",
+      "path": "package/icons/dogecoin.svg",
+      "sha256": "6a052f8e1e613962c1109e47a5181fb035b4543602cd20aa25c0aa0dc0efa9e5"
+    },
+    {
+      "id": "cardano",
+      "name": "Cardano",
+      "market": "crypto",
+      "symbols": [
+        "ADA"
+      ],
+      "tint": "blue",
+      "source": "simple16",
+      "path": "package/icons/cardano.svg",
+      "sha256": "483d84644f7d2f41e1a0a60114fb4d528dcba428301f6006e6660a32caa2bb9a"
+    },
+    {
+      "id": "litecoin",
+      "name": "Litecoin",
+      "market": "crypto",
+      "symbols": [
+        "LTC"
+      ],
+      "tint": "blue",
+      "source": "simple16",
+      "path": "package/icons/litecoin.svg",
+      "sha256": "808b486b991e8f41d888fad560d8ee0a56b24593a339606a9645e53efb1c24a6"
+    },
+    {
+      "id": "ripple",
+      "name": "XRP",
+      "market": "crypto",
+      "symbols": [
+        "XRP"
+      ],
+      "tint": "blue",
+      "source": "crypto",
+      "path": "package/svg/black/xrp.svg",
+      "sha256": "d59b9902962029e4069e6c5f2dced3985c8959340e1de50d228cedde07a75854"
+    },
+    {
+      "id": "usdc",
+      "name": "USDC",
+      "market": "crypto",
+      "symbols": [
+        "USDC"
+      ],
+      "tint": "blue",
+      "source": "crypto",
+      "path": "package/svg/black/usdc.svg",
+      "sha256": "43bcc8d40482f199589e21f44686b5457d6aa15bf8e442917d799734f4ba01c9"
+    },
+    {
+      "id": "bitcoincash",
+      "name": "Bitcoin Cash",
+      "market": "crypto",
+      "symbols": [
+        "BCH"
+      ],
+      "tint": "primary",
+      "source": "crypto",
+      "path": "package/svg/black/bch.svg",
+      "sha256": "d870fbfc6e4d4cd095a64ecc6f86afaa1800ad1b5ee40ed6d9a85ac241b6cbfc"
+    },
+    {
+      "id": "ethereumclassic",
+      "name": "Ethereum Classic",
+      "market": "crypto",
+      "symbols": [
+        "ETC"
+      ],
+      "tint": "primary",
+      "source": "crypto",
+      "path": "package/svg/black/etc.svg",
+      "sha256": "7b371659b66e4979b35599840188b9ecb5f143308a329dcdd429572d2dec85b0"
+    },
+    {
+      "id": "stellar",
+      "name": "Stellar",
+      "market": "crypto",
+      "symbols": [
+        "XLM"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/stellar.svg",
+      "sha256": "10c22aa1cb9c819ec43f814dd75d22a725c9deb7f8d42dbf2da4fd9b87a62d36"
+    },
+    {
+      "id": "monero",
+      "name": "Monero",
+      "market": "crypto",
+      "symbols": [
+        "XMR"
+      ],
+      "tint": "gold",
+      "source": "simple16",
+      "path": "package/icons/monero.svg",
+      "sha256": "4e523bb1c568ed8960e40612e722e37059e1772cdc1a75ab4d5fd4e45a628bbe"
+    },
+    {
+      "id": "tron",
+      "name": "TRON",
+      "market": "crypto",
+      "symbols": [
+        "TRX"
+      ],
+      "tint": "primary",
+      "source": "crypto",
+      "path": "package/svg/black/trx.svg",
+      "sha256": "8f7e3515228908305e07efab1efdca6a668352ed3c07e57f505d1260d01db337"
+    },
+    {
+      "id": "polkadot",
+      "name": "Polkadot",
+      "market": "crypto",
+      "symbols": [
+        "DOT"
+      ],
+      "tint": "red",
+      "source": "simple16",
+      "path": "package/icons/polkadot.svg",
+      "sha256": "b2139b16f16125182999aecafffa6e23c4abd0ab7e206306e4176e3bc2702192"
+    },
+    {
+      "id": "chainlink",
+      "name": "Chainlink",
+      "market": "crypto",
+      "symbols": [
+        "LINK"
+      ],
+      "tint": "blue",
+      "source": "simple16",
+      "path": "package/icons/chainlink.svg",
+      "sha256": "d6a5195981e4ea0c8ad86ff37e9be9de2ef4dbac5dabe0e3c79298a0d1d70342"
+    },
+    {
+      "id": "cosmos",
+      "name": "Cosmos",
+      "market": "crypto",
+      "symbols": [
+        "ATOM"
+      ],
+      "tint": "primary",
+      "source": "crypto",
+      "path": "package/svg/black/atom.svg",
+      "sha256": "03f1261c95ccbad50f6d4330bfac9ebcb31d919ce17f4681423e4ae031e989c9"
+    },
+    {
+      "id": "avalanche",
+      "name": "Avalanche",
+      "market": "crypto",
+      "symbols": [
+        "AVAX"
+      ],
+      "tint": "primary",
+      "source": "crypto",
+      "path": "package/svg/black/avax.svg",
+      "sha256": "17fd4c8d4683748ac5bd720b9adff6b97773ff47f6e6254641fc228f7c58e8b5"
+    },
+    {
+      "id": "uniswap",
+      "name": "Uniswap",
+      "market": "crypto",
+      "symbols": [
+        "UNI"
+      ],
+      "tint": "primary",
+      "source": "crypto",
+      "path": "package/svg/black/uni.svg",
+      "sha256": "700af579d38406f744393c018791b1dad405009baa658aa1def45efda74d40b0"
+    },
+    {
+      "id": "aave",
+      "name": "Aave",
+      "market": "crypto",
+      "symbols": [
+        "AAVE"
+      ],
+      "tint": "primary",
+      "source": "crypto",
+      "path": "package/svg/black/aave.svg",
+      "sha256": "989972e427470e9962136f7b255d1e7e40b0dd3c1f4f2a7243d7e23fc9ade8a3"
+    },
+    {
+      "id": "algorand",
+      "name": "Algorand",
+      "market": "crypto",
+      "symbols": [
+        "ALGO"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/algorand.svg",
+      "sha256": "b2b8632617324e7bb6733a739dbb89199e546ca29384b230364224522be6e0f1"
+    },
+    {
+      "id": "filecoin",
+      "name": "Filecoin",
+      "market": "crypto",
+      "symbols": [
+        "FIL"
+      ],
+      "tint": "primary",
+      "source": "crypto",
+      "path": "package/svg/black/fil.svg",
+      "sha256": "1b9bb6717e2c9d83f7461f0f2752239817e2802b6c06425e3169d4551b888888"
+    },
+    {
+      "id": "internetcomputer",
+      "name": "Internet Computer",
+      "market": "crypto",
+      "symbols": [
+        "ICP"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/internetcomputer.svg",
+      "sha256": "03fe5402d5330c6d2d4f47b68bb4faf4709d072e36c13ee52c98b5bb13cdf744"
+    },
+    {
+      "id": "near",
+      "name": "NEAR",
+      "market": "crypto",
+      "symbols": [
+        "NEAR"
+      ],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/near.svg",
+      "sha256": "01039491f0c755663fe09c4774fbae86da2526491372aecccdc00c25c29d37bc"
+    },
+    {
+      "id": "polygon",
+      "name": "Polygon",
+      "market": "crypto",
+      "symbols": [
+        "POL",
+        "MATIC"
+      ],
+      "tint": "ethereum",
+      "source": "simple16",
+      "path": "package/icons/polygon.svg",
+      "sha256": "a75cf1f5b893c76ba546cb9fe04741482aa18bab89ee80f4ac2c9f21ad5eafd2"
+    },
+    {
+      "id": "ton",
+      "name": "Toncoin",
+      "market": "crypto",
+      "symbols": [
+        "TON"
+      ],
+      "tint": "blue",
+      "source": "simple16",
+      "path": "package/icons/ton.svg",
+      "sha256": "c91989e5976d1f26b33bb67ee807acc6e965e055d5fb1f12335eb2c9f42e323a"
+    },
+    {
+      "id": "sui",
+      "name": "Sui",
+      "market": "crypto",
+      "symbols": [
+        "SUI"
+      ],
+      "tint": "blue",
+      "source": "simple16",
+      "path": "package/icons/sui.svg",
+      "sha256": "2720f261362f5ff8b208be27772e90895d26b141824928884a171a716cd83908"
+    },
+    {
+      "id": "optimism",
+      "name": "Optimism",
+      "market": "crypto",
+      "symbols": [
+        "OP"
+      ],
+      "tint": "red",
+      "source": "simple16",
+      "path": "package/icons/optimism.svg",
+      "sha256": "5a3121a1032fd87cead17f7cf6aa8bf837e848c109df8aa9ace600714d2aaf8e"
+    },
+    {
+      "id": "dai",
+      "name": "Dai",
+      "market": "crypto",
+      "symbols": [
+        "DAI"
+      ],
+      "tint": "gold",
+      "source": "crypto",
+      "path": "package/svg/black/dai.svg",
+      "sha256": "260e4284a6b96db9048101ddbf0689aad6c5b8de7236a08f27a36dfbc9862ce2"
+    },
+    {
+      "id": "spacex",
+      "name": "SpaceX",
+      "market": "reserved",
+      "symbols": [],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/spacex.svg",
+      "sha256": "b62123e05102ff4faa0a900d385c5312426f397a72ed9b6e4018821d9c18ac9a"
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "market": "reserved",
+      "symbols": [],
+      "tint": "primary",
+      "source": "simple16",
+      "path": "package/icons/anthropic.svg",
+      "sha256": "1cc599f6ebce2016dc388cf84e54a52c6b13487655c7e243554d654c7bce1882"
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "market": "reserved",
+      "symbols": [],
+      "tint": "primary",
+      "source": "simple13",
+      "path": "package/icons/openai.svg",
+      "sha256": "2b4a04ddc2395b20d168694d3850ce2050a702c4a0cdeb4d8b31b9a970481a8c"
+    }
+  ]
+}

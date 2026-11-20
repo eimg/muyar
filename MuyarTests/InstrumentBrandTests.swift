@@ -33,4 +33,31 @@ final class InstrumentBrandTests: XCTestCase {
         XCTAssertNil(Instrument.defaults.first { $0.symbol == "GC=F" }?.brand)
         XCTAssertNil(Instrument(symbol: "AAPLX", name: "Apple-like name", category: .stocks, provider: .yahoo, currency: "USD", exchange: "", unit: nil).brand)
     }
+
+    func testCatalogCoversUnwatchedCompaniesAndCrypto() {
+        XCTAssertGreaterThanOrEqual(InstrumentBrand.allCases.count, 100)
+        for (symbol, brand) in [("AMZN", InstrumentBrand.amazon), ("GOOGL", .google), ("NET", .cloudflare), ("RDDT", .reddit), ("SONY", .sony)] {
+            let item = Instrument(symbol: symbol, name: symbol, category: .stocks, provider: .yahoo, currency: "USD", exchange: "", unit: nil)
+            XCTAssertEqual(item.brand, brand)
+        }
+        XCTAssertEqual(crypto("SUIUSDT", quote: "USDT").brand, .sui)
+        XCTAssertEqual(crypto("TONUSDC", quote: "USDC").brand, .ton)
+        XCTAssertEqual(crypto("POLBTC", quote: "BTC").brand, .polygon)
+        XCTAssertEqual(crypto("MATICUSDT", quote: "USDT").brand, .polygon)
+    }
+
+    func testReservedBrandsDoNotInventTradeableSymbols() {
+        for reserved in [InstrumentBrand.spacex, .anthropic, .openai] {
+            XCTAssertFalse(InstrumentBrand.stocksSymbols.values.contains(reserved))
+            XCTAssertFalse(InstrumentBrand.cryptoSymbols.values.contains(reserved))
+        }
+    }
+
+    func testCommodityIconsAreProviderSpecific() {
+        XCTAssertEqual(Instrument.defaults[0].glyph, .goldBrick)
+        XCTAssertEqual(Instrument.defaults[1].glyph, .oil)
+        let dollar = Instrument(symbol: "DX-Y.NYB", name: "US Dollar Index", category: .stocks, provider: .yahoo, currency: "", exchange: "", unit: nil)
+        XCTAssertEqual(dollar.glyph, .dollar)
+        XCTAssertNil(crypto("DX-Y.NYB", quote: "NYB").glyph)
+    }
 }

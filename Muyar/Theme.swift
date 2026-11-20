@@ -47,6 +47,18 @@ enum MuyarTheme {
         case .crypto: accent
         }
     }
+    static func color(for brand: InstrumentBrand) -> Color {
+        switch brand.tint {
+        case .bitcoin: bitcoin
+        case .ethereum: ethereum
+        case .nvidia: nvidia
+        case .primary, .original: .primary
+        case .positive: positive
+        case .red: red
+        case .gold: gold
+        case .blue: color(for: .energy)
+        }
+    }
 }
 
 struct AppearanceControl: View {
@@ -74,26 +86,21 @@ struct AppearanceControl: View {
 struct AssetIcon: View {
     let instrument: Instrument
     private var color: Color {
-        switch instrument.brand {
-        case .bitcoin: return MuyarTheme.bitcoin
-        case .ethereum: return MuyarTheme.ethereum
-        case .apple, .microsoft, .solana: return .primary
-        case .nvidia: return MuyarTheme.nvidia
-        case .tether: return MuyarTheme.positive
-        case .tesla: return MuyarTheme.red
-        case .binance, .dogecoin: return MuyarTheme.gold
-        case .cardano, .litecoin, .ripple: return MuyarTheme.color(for: .energy)
-        case nil: return MuyarTheme.color(for: instrument.category)
-        }
+        if let brand = instrument.brand { return MuyarTheme.color(for: brand) }
+        return instrument.glyph == .dollar ? MuyarTheme.accent : MuyarTheme.color(for: instrument.category)
     }
     var body: some View {
         Group {
             if let brand = instrument.brand {
                 Image(brand.assetName)
-                    .renderingMode(brand == .microsoft ? .original : .template)
+                    .renderingMode(brand.tint == .original ? .original : .template)
                     .resizable().scaledToFit().frame(width: 24, height: 24)
-            } else if instrument.symbol == "CL=F" || instrument.symbol == "BZ=F" {
-                Image(systemName: "drop.fill").font(.system(size: 23))
+            } else if let glyph = instrument.glyph {
+                switch glyph {
+                case .goldBrick: GoldBrickIcon().frame(width: 25, height: 25)
+                case .oil: Image(systemName: "drop.fill").font(.system(size: 23))
+                case .dollar: Image(systemName: "dollarsign").font(.system(size: 24, weight: .medium))
+                }
             } else {
                 Text(instrument.monogram)
                     .font(.system(size: instrument.monogram.count > 2 ? 13 : 17, weight: .semibold, design: .rounded))
@@ -103,6 +110,33 @@ struct AssetIcon: View {
             .frame(width: 43, height: 43)
             .background(color.opacity(0.10), in: RoundedRectangle(cornerRadius: 14))
             .accessibilityHidden(true)
+    }
+}
+
+private struct GoldBrickIcon: View {
+    var body: some View {
+        Canvas { context, _ in
+            var top = Path()
+            top.move(to: .init(x: 6, y: 4))
+            top.addLine(to: .init(x: 19, y: 4))
+            top.addLine(to: .init(x: 23, y: 16))
+            top.addLine(to: .init(x: 2, y: 16))
+            top.closeSubpath()
+            context.fill(top, with: .foreground)
+            var front = Path()
+            front.move(to: .init(x: 2, y: 16))
+            front.addLine(to: .init(x: 23, y: 16))
+            front.addLine(to: .init(x: 21, y: 21))
+            front.addLine(to: .init(x: 4, y: 21))
+            front.closeSubpath()
+            var faceContext = context
+            faceContext.opacity = 0.65
+            faceContext.fill(front, with: .foreground)
+            var bevel = Path()
+            bevel.move(to: .init(x: 7, y: 7))
+            bevel.addLine(to: .init(x: 18, y: 7))
+            context.stroke(bevel, with: .color(MuyarTheme.background.opacity(0.55)), style: .init(lineWidth: 1.3, lineCap: .round))
+        }
     }
 }
 

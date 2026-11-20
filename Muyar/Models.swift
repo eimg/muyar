@@ -63,6 +63,20 @@ struct Instrument: Identifiable, Codable, Equatable, Hashable, Sendable {
     ]
 }
 
+enum InstrumentGlyph: Equatable, Sendable { case goldBrick, oil, dollar }
+
+extension Instrument {
+    var glyph: InstrumentGlyph? {
+        guard provider == .yahoo else { return nil }
+        switch symbol {
+        case "GC=F": return .goldBrick
+        case "CL=F", "BZ=F": return .oil
+        case "DX-Y.NYB", "^DXY": return .dollar
+        default: return nil
+        }
+    }
+}
+
 enum ChartRange: String, CaseIterable, Identifiable, Codable, Sendable {
     case fourHours = "4H", day = "1D", week = "1W", month = "1M"
     var id: String { rawValue }
